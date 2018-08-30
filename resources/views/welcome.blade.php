@@ -14,7 +14,8 @@
 <form method="POST" action={{url('/task')}}>
 {{csrf_field()}}
 <div class="form-group">
-<input type="text" class="form-control" name="task" placeholder="Enter Task">
+<input type="text" required class="form-control" name="task" placeholder="Task Title">
+<input type="text-area" required class="form-control" name="details" placeholder="Task Details">
 </div>
 <div class="form-group">
 <button type="submit" class="btn btn-success">Add</button>
@@ -24,6 +25,7 @@
 <ol>
 @foreach($tasks as $task)
 <li><a href ={{url('/'.$task->id.'/complete')}}>{{ $task->task }}</a></li>
+<h6>{{$task->details}}</h6>
 @endforeach
 </ol>
 <h4>Completed</h4>

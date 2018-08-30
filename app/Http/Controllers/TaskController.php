@@ -21,6 +21,7 @@ class TaskController extends Controller
         $input = $request->all();
         $task = new Task();
         $task->task = request("task");
+        $task->details = request("details");
         $task->iscompleted=false;
         $task->save();
         return Redirect::back()->with("message", "Task has been added");
