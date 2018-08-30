@@ -35,6 +35,14 @@ class TaskController extends Controller
         return Redirect::back()->with("message", "Task has been added to completed list");
     }
 
+    public function update($id)
+    {
+        $task = Task::find($id);
+        $task->details = request("details_u");
+        $task->save();
+        return Redirect::back()->with("message", "Task has been Updated");
+    }
+
     public function destroy($id)
     {
         $task = Task::find($id);
